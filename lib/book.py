@@ -1,15 +1,17 @@
-#!/usr/bin/env python3
-
 class Book:
-    def __init__(self, tittle, author, year ):
-        self.tittle = tittle
-        self.author = author
-        self.year = year
-    def Reader (self):
-        print("i like reading", self.tittle, "written by", self.author, "in the year", self.year)
-    
-article = Book (",LEGENDS,", "Augasha", 2022)
-article.Reader()
-        
-    
-        
+    def __init__(self, title, page_count):
+        self.title = title
+        self._page_count = None  # private variable to store page_count
+        # Set the page_count using the setter method
+        self.page_count = page_count
+    @property
+    def page_count(self):
+        return self._page_count
+    @page_count.setter
+    def page_count(self, value):
+        if not isinstance(value, int):
+            print("page_count must be an integer")
+        else:
+            self._page_count = value
+    def turn_page(self):
+        print("Flipping the page...wow, you read fast!")

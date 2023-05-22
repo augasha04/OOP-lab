@@ -1,23 +1,18 @@
 class Shoe:
-    def __init__ (self, brand, color):
+    def __init__(self, brand, size):
         self.brand = brand
-        self.color = color
-    
-    def Wearer (self):
-        print ("I am wearing a ", self.brand, " ", self.color, " shoe")
-        
-# Shoe = Wearer ("Nike", "Black")
-    
-# Shoe.Wearer()
-
-class Soal (Shoe):
-    def __init__(self, brand, color, make, size):
-        super().__init__(brand, color)
+        self._size = None  # private variable to store size
+        # Set the size using the setter method
         self.size = size
-        self.make = make
-            
-    def Wearer (self):
-        print(f"i am wearing a shoe of {self.brand}, it is color {self.color} and of make {self.make}, and it is number {self.size} in size")
-    
-# Shoe =  ("Nike", "Blue", "Air Force", 4)
-# Shoe.Soal()
+    @property
+    def size(self):
+        return self._size
+    @size.setter
+    def size(self, value):
+        if not isinstance(value, int):
+            print("size must be an integer")
+        else:
+            self._size = value
+    def cobble(self):
+        print("Your shoe is as good as new!")
+        self.condition = "New"
